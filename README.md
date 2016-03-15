@@ -2,11 +2,11 @@
 
 #Radar Team
 
-Dr. Luciano Vidal (PhD) - Departament of Research and Development / National Meteorological Service (SMN) - Argentina
+Dr. Luciano Vidal (PhD) - Department of Research and Development / National Meteorological Service (SMN) - Argentina
 
-Sofía Ruiz Suarez (Graduate Student in Mathematics) - Departament of Research and Development / National Meteorological Service (SMN) - Argentina
+Sofía Ruiz Suarez (Graduate Student in Mathematics) - Department of Research and Development / National Meteorological Service (SMN) - Argentina
 
-Bach. Cs. Atm. Martín Rugna (Graduate Student in Meteorology) - Departament of Research and Development / National Meteorological Service (SMN) - Argentina
+Bach. Cs. Atm. Martín Rugna (Graduate Student in Meteorology) - Department of Research and Development / National Meteorological Service (SMN) - Argentina
 
 Lic. Romina Mezher (PhD Student in Meteorology) - Institute of Water and Climate / National Institute of Agriculture Technology (INTA) - Argentina
 
