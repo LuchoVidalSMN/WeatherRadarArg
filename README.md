@@ -1,4 +1,4 @@
-# Agentinian Weather Radar Group - SMN/INTA
+# Argentina Weather Radar Group - SMN/INTA
 
 #Radar Team
 
