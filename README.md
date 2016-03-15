@@ -1,8 +1,8 @@
 # Agentinian Weather Radar Group - SMN/INTA
 
-#Radar Team:
+#Radar Team
 
-Dr. Luciano Vidal - Departament of Research and Development / National Meteorological Service (SMN) - Argentina
+##Dr. Luciano Vidal## - Departament of Research and Development / National Meteorological Service (SMN) - Argentina
 
 Sofía Ruiz Suarez (Graduate Student - ) - Departament of Research and Development / National Meteorological Service (SMN) - Argentina
 
