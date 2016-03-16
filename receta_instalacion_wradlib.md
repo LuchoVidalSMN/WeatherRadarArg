@@ -34,7 +34,7 @@ anaconda show jjhelmus/wradlib
 conda install --channel https://conda.anaconda.org/jjhelmus wradlib
 ```
 
-Probar abriendo una consola de IPython. Ejecutar este comando debería dar salida 0.
+Probar ejecutando el siguiente comando en una terminal. La salida debería ser 0 si se instaló correctamente.
 
 ```
 ipython -c "import wradlib"; echo $?
