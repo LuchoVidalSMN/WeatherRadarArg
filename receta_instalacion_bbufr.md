@@ -22,7 +22,7 @@ sudo apt-get install libproj-dev
 
 - Zlib
 
-···Descargar de www.zlib.net el .tar.gz. Descomprimir y compilar con:
+Descargar de www.zlib.net el .tar.gz. Descomprimir y compilar con:
 ```
 cd zlib-1.2.8
 sudo ./configure --prefix=/usr/local/
@@ -32,7 +32,7 @@ sudo make install
 
 - HDF5
 
-···Se pueden hacer dos cosas, instalar por terminal con apt-get o descargar y compilar. El segundo paso es idéntico al de zlib descargando de www.hdfgroup.org/HDF5/release/obtainsrc. Por terminal:
+Se pueden hacer dos cosas, instalar por terminal con apt-get o descargar y compilar. El segundo paso es idéntico al de zlib descargando de www.hdfgroup.org/HDF5/release/obtainsrc.html. Por terminal:
 
 ```sudo apt-get install libhdf5-serial-dev```
 
@@ -54,7 +54,7 @@ make check
 make install
 ```
 
-_Aclaración_: Para poder convertir los bufr de los RMA hace falta unas tablas. En la carpeta `bbufr` hay una carpeta `tables`. Renombrarla a `tables_backup` y copiar la carpeta con las tablas necesarias.
+_Aclaración_: Para poder convertir los bufr de los RMA hace falta unas tablas. En la carpeta `bbufr` hay una carpeta `tables`. Renombrarla a `tables_backup` y copiar la carpeta que contiene las tablas necesarias.
 
 La conversión se realiza de la siguiente manera:
 
