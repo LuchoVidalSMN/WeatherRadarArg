@@ -8,17 +8,21 @@ git clone git://git.baltrad.eu/bbufr.git
 cd bbufr
 ```
 
-Dentro de la carpeta hay un ejecutable ```configure``` al cual hay que darle un par de opciones.
+Dentro de la carpeta hay un ejecutable `configure` al cual hay que darle un par de opciones.
 
-*OJO*, es altamente probable que este instalador falle algunas veces porque falten dependencias. El siguiente comando es el ejecutable, después van todos los requerimientos que hizo falta instalar para que funcione.
+**OJO**, es altamente probable que este instalador falle algunas veces porque falten dependencias. El siguiente comando es el ejecutable, después van todos los requerimientos que hizo falta instalar para que funcione.
 
 ```sudo ./configure --prefix=/usr/local/```
 
 - Proj library
-```sudo apt-get install libproj-dev```
+
+```
+sudo apt-get install libproj-dev
+```
 
 - Zlib
-Descargar de www.zlib.net el .tar.gz. Descomprimir y compilar con:
+
+···Descargar de www.zlib.net el .tar.gz. Descomprimir y compilar con:
 ```
 cd zlib-1.2.8
 sudo ./configure --prefix=/usr/local/
@@ -27,11 +31,12 @@ sudo make install
 ```
 
 - HDF5
-Se pueden hacer dos cosas, instalar por terminal con apt-get o descargar y compilar. El segundo paso es idéntico al de zlib descargando de www.hdfgroup.org/HDF5/release/obtainsrc. Por terminal:
+
+···Se pueden hacer dos cosas, instalar por terminal con apt-get o descargar y compilar. El segundo paso es idéntico al de zlib descargando de www.hdfgroup.org/HDF5/release/obtainsrc. Por terminal:
 
 ```sudo apt-get install libhdf5-serial-dev```
 
-Con todo esto debería funcionar el ejecutable ```configure``` y así generar los makefile.
+Con todo esto debería funcionar el ejecutable `configure` y así generar los makefile.
 
 Para estos make encontré varias maneras de ejecutarlos. Voy a poner las 2 que funcionaron.
 
@@ -49,7 +54,7 @@ make check
 make install
 ```
 
-_Aclaración_: Para poder convertir los bufr de los RMA hace falta unas tablas. En la carpeta ```bbufr``` hay una carpeta ```tables```. Renombrarla a ```tables_backup``` y copiar la carpeta con las tablas necesarias.
+_Aclaración_: Para poder convertir los bufr de los RMA hace falta unas tablas. En la carpeta `bbufr` hay una carpeta `tables`. Renombrarla a `tables_backup` y copiar la carpeta con las tablas necesarias.
 
 La conversión se realiza de la siguiente manera:
 
