@@ -24,11 +24,9 @@ El primer comando crea el entorno `steve_pyart` clonando `anaconda` base (i.e. 0
 
 ### Instalación de un fork de PyART
 
-El problema si quería bajar PyART usando `conda install` es que descarga la última versión _estable_. Lo que necesitamos es un archivo read_sinarame_h5 que ya está en la versión de Github ("beta") pero que no está en la estable.
+El problema si quería bajar PyART usando `conda install` es que descarga la última versión *estable*. Lo que necesitamos es un archivo read_sinarame_h5 que ya está en la versión de Github ("beta") pero que no está en la estable.
 
-Como ya está activado el entorno nuevo, primero instalo netCDF4 con conda
-
-```conda install netCDF4```
+Como ya está activado el entorno nuevo, primero instalo netCDF4 con conda `conda install netCDF4`
 
 Después viene este comando mágico para clonar e instalar desde Github
 
@@ -38,15 +36,15 @@ pip install git+git://github.com/swnesbitt/pyart@master
 
 Pip descarga el master de PyART y lo instala sin intervención del usuario.
 
-_Aclaración:_ Yo bajé el fork de Steve pero la versión de ARM-DOE ya tiene el archivo que necesitamos. Se puede bajar ese y no debería haber problema. Yo no lo hice.
+*Aclaración:* Yo bajé el fork de Steve pero la versión de ARM-DOE ya tiene el archivo que necesitamos. Se puede bajar ese y no debería haber problema. Yo no lo hice.
 
-Instalamos basemap porque después va a hacer falta.
+Instalamos basemap porque después (siempre) va a hacer falta.
 
 ```conda install basemap```
 
 ### Arreglando el conversor de BUFR a HDF5
 
-En la otra receta se descarga e instala la versión común de `bbufr`. Los RMA necesitan algunos ajustes previo a la compilación para que después reconozca todas las variables. Existe el documento donde muestra las líneas exactas que hay que cambiar. Acá dejo asentado cuales son los números y las variables que le corresponden
+En la [otra receta](https://github.com/LuchoVidalSMN/WeatherRadarArg_SMN_INTA/blob/master/docs/receta_instalacion_bbufr.md) se descarga e instala la versión común de `bbufr`. Los RMA necesitan algunos ajustes previo a la compilación para que después reconozca todas las variables. Existe el documento donde muestra las líneas exactas que hay que cambiar. Acá dejo asentado cuales son los números y las variables que le corresponden
 
 Variable | Parámetro |
 :---: | :---:
