@@ -58,4 +58,6 @@ def hdf5_to_cfrad(filename):
     name=nombre[:-4]
     pyart.io.cfradial.write_cfradial(name,radar, format='NETCDF4',time_reference=None, arm_time_variables=False)    
     
+if __name__ == '__main__':
+    hdf5_to_cfrad()
 
