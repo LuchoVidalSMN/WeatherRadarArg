@@ -1,21 +1,32 @@
-Estas son las cosas que habría que cambiar/arreglar
+###sinarame_h5
 
-118: agregar al paréntesis
+
+En el archivo `pyart/pyart/aux_io/sinarame_h5.py` las siguientes líneas deberían ser cambiadas para poder leer los H5 de los RMA.
+
+línea 118: agregar al paréntesis
 ```python
 datasets.sort(key=lambda i: '{0:0>9}'.format(i))
 ```
+Esto hace que los datasets estén ordenados de forma natural (originalmente están dataset1, dataset10, dataset 2, etc. porque lee los nombres como strings)
 
-284: agregar nueva línea (o sea, 285)
+línea 284: agregar nueva línea (o sea, 285)
 ```python
 if file_field_names is True: fields[field_name].update(filemetadata.get_metadata(field_names[field_name]))
 ```
+En caso de usar nombres distintos de las variables (o sea, TH en vez de total_power por ejemplo) el diccionario perdía todos los metadatos. Como esos datos todavía existen en el diccionario filemetadata los añado a cada key del diccionario fields (field_names es el diccionario con los nombres modificados y origniales; field_name es el nombre modificado que le queda a la variable)
 
-Con estas líneas aproximo lo que ya hizo Steve
+Entiendo que este archivo igualmente está incompleto en algunos de los requerimientos de los desarrolladores de PyART para ponerlo finalmente en io en vez de aux_io.
+
+###sinarame_to_cfradial
+
+En un archivo distinto aproximo lo que ya hizo Steve para generar un objeto radar que contenga a todas las variables (y sus metadatos). Hay que definir cómo queda el nombre del archivo, aparentemente es bastante abierto.
 
 ```python
+import pyart
 import glob, os, sys
 import datetime #from datetime import datetime
 from netcdftime import utime
+import numpy as np
 
 files=glob.glob('/home/martin/Escritorio/RMA1_ejemplo/*.H5')
 path='/home/martin/Escritorio/RMA1_ejemplo/'
@@ -31,13 +42,12 @@ for i in np.arange(len(files)):
         radar_prov=read_sinarame_h5(file,file_field_names=True)
         radar.fields.update(radar_prov.fields)
 
-cal_temps = u"gregorian" 
+cal_temps = u"gregorian" # Se usa esto?
 cdftime = utime(radar.time['units'])
 
 time1=cdftime.num2date(radar.time['data'][0]).strftime('%Y%m%d_%H%M%S')
 time2=cdftime.num2date(radar.time['data'][-1]).strftime('%Y%m%d_%H%M%S')
 
-# Hay que definir que se hace aca con el nombre
 cffile='cfrad.{time1}.0000_to_{time2}.0000_{b1}_SUR.nc'.format(time1=time1,time2=time2,b1=bs[0])
 print cffile
 
