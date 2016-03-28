@@ -1,15 +1,29 @@
-###sinarame_h5
+### sinarame_h5
 
 
 En el archivo `pyart/pyart/aux_io/sinarame_h5.py` las siguientes líneas deberían ser cambiadas para poder leer los H5 de los RMA.
 
-línea 118: agregar al paréntesis
+- línea 118: agregar al paréntesis
+
 ```python
 datasets.sort(key=lambda i: '{0:0>9}'.format(i))
 ```
-Esto hace que los datasets estén ordenados de forma natural (originalmente están dataset1, dataset10, dataset 2, etc. porque lee los nombres como strings)
+Originalmente no había nada entre los paréntesis indicando que Python ordenaba la lista sin argumentos. Esto hacía que el orden fuese lexicográfico resultando que `dataset10` estuviese antes que `dataset2` debido a que se compara caracter a caracter; entonces siendo iguales todos los caracteres en `dataset`, al comparar el elemento siguiente (número) el 1 viene antes que el 2. El problema es que al armar el array con los datos, este se basa en el orden de la lista `datasets` haciendo que la décima elevación estuviese antes que la segunda.
 
-línea 284: agregar nueva línea (o sea, 285)
+Como entender lo que hace pide sort con esta función lambda me fue bastante complejo voy a detallarlo:
+- `key` itera sobre los i elementos de la lista datasets.
+- Las llaves indican una sustitución.
+- Cada elemento i sera formateado siguiendo lo que hay entre las llaves.
+ - El primer `0` indica al elemento 0 (o sea, el primero) dentro de `format` (en este caso el único).
+ - Después del `:` viene el formato que se aplicará.
+ - Los 3 caracteres siguientes indican *fill, align y minimumwidth* respectivamente según [PEP3101](https://www.python.org/dev/peps/pep-3101); en este caso completa con ceros, alineando a la derecha hasta llegar a un mínimo de 9 caracteres.
+
+El orden finalmente queda lexicográfico pero los keys para ordenar ahora son: `0dataset1`,`0dataset2`, ..., `0dataset9`,`dataset10` debido a que ahora la comparación del primer caracter no es solamente con la letra `d` (como sucedía previamente) sino con los caracteres `0` y `d`, donde los números vienen antes que las letras.
+
+Vale aclarar que los elementos en `datasets` no se alteran y queda todo como antes, aunque ordenado como corresponde.
+
+- línea 284: agregar nueva línea (o sea, 285)
+
 ```python
 if file_field_names is True: fields[field_name].update(filemetadata.get_metadata(field_names[field_name]))
 ```
@@ -17,7 +31,7 @@ En caso de usar nombres distintos de las variables (o sea, TH en vez de total_po
 
 Entiendo que este archivo igualmente está incompleto en algunos de los requerimientos de los desarrolladores de PyART para ponerlo finalmente en io en vez de aux_io.
 
-###sinarame_to_cfradial
+### sinarame_to_cfradial
 
 En un archivo distinto aproximo lo que ya hizo [Steve](https://github.com/ARM-DOE/pyart/blob/493c53e2aec7c9e2e889ea62c319a2e470a38423/scripts/sinarame_to_cfradial.py) para generar un objeto radar que contenga a todas las variables (y sus metadatos). Hay que definir cómo queda el nombre del archivo, aparentemente es bastante abierto.
 
