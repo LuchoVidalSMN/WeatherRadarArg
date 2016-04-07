@@ -28,6 +28,8 @@ Dentro de la carpeta hay un ejecutable `configure` al cual hay que darle un par 
 sudo ./configure --prefix=/usr/local/
 ```
 
+---
+### Dependencias
 - Proj library
 
 ```bash
@@ -51,6 +53,7 @@ Se pueden hacer dos cosas, instalar por terminal con apt-get o descargar y compi
 ```bash
 sudo apt-get install libhdf5-serial-dev
 ```
+---
 
 Antes de seguir hay que verificar que se puede consultar la librería de HDF5. Esto se consigue revisando el archivo `~/.bashrc` (o bashprofile en algunos casos). La siguiente línea debería estar, sino se puede agregar al final
 
